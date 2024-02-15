@@ -17,6 +17,12 @@ public struct LineC
         this.origin = origin;
         this.direction = direction;
     }
+
+    public LineC(Vector3C pointA, Vector3C pointB):this()
+    {
+        this.origin = pointA;
+        this.direction = pointB - pointA;
+    }
     #endregion
 
     #region OPERATORS
