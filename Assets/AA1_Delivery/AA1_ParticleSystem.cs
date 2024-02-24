@@ -60,15 +60,15 @@ public class AA1_ParticleSystem
     {
         foreach (var item in settingsCollision.planes)
         {
-            item.Print(Vector3C.red);
+            //item.Print(Vector3C.red);
         }
         foreach (var item in settingsCollision.capsules)
         {
-            item.Print(Vector3C.green);
+            //item.Print(Vector3C.green);
         }
         foreach (var item in settingsCollision.spheres)
         {
-            item.Print(Vector3C.blue);
+            //item.Print(Vector3C.blue);
         }
     }
 }

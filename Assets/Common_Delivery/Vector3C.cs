@@ -64,7 +64,7 @@ public struct Vector3C
     public static Vector3C operator *(Vector3C a, Vector3C b)
     {
         
-        return new Vector3C(a.x * b.x, a.y * b.y, a.z * b.z);
+        return new Vector3C(a.y * b.z-a.z*b.y, a.z * b.x-a.x*b.z, a.x*b.y -a.y* b.x);
     }
 
     public static Vector3C operator /(Vector3C a, Vector3C b)
