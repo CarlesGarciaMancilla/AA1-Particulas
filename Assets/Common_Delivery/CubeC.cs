@@ -60,8 +60,7 @@ public struct CubeC
     {
         if (a.position == b.position)
         {
-            if (a.position == b.position)
-            {
+            
 
                 if (a.scale == b.scale)
                 {
@@ -91,9 +90,7 @@ public struct CubeC
                     return true;
 
 
-            }
-            else
-                return true;
+           
 
         }
         else

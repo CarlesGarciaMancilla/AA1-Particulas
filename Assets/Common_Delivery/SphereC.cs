@@ -82,7 +82,7 @@ public struct SphereC
         }    
         else
         {
-            return true;
+            return false;
         }
 
     }
