@@ -23,7 +23,7 @@ public struct PlaneC
     }
 
 
-    public PlaneC(Vector3C pointA, Vector3C pointB, Vector3C pointC)
+    public PlaneC(Vector3C pointA, Vector3C pointB, Vector3C pointC) : this()
     {
         Vector3C AB = pointB - pointA;
         Vector3C AC = pointC - pointA;
@@ -45,7 +45,7 @@ public struct PlaneC
 
 
 
-    public PlaneC(float A, float B, float C, float D)
+    public PlaneC(float A, float B, float C, float D) : this()
     {
         float positionX = (B*0+ C*0 + D) / A;
         float positionY = (A*0+ C*0 + D) / B;
@@ -54,6 +54,12 @@ public struct PlaneC
         
         this.position = new Vector3C(positionX, positionY, positionZ);
         this.normal = new Vector3C(A,B,C);
+    }
+
+    public PlaneC(Vector3C normal, float D) : this() 
+    {
+        this.position = normal * D;
+        this.normal = normal.normalized;
     }
 
 

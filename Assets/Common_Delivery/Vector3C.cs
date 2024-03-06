@@ -11,6 +11,9 @@ public struct Vector3C
     #endregion
 
     #region PROPIERTIES
+    public float r { get => x; set => x = value; }
+    public float g { get => y; set => y = value; }
+    public float b { get => z; set => z = value; }
     public float magnitude { get { return Magnitude( x,  y,  z); } }
     public Vector3C normalized { get { return Normalize( x,  y, z); } }
 
@@ -21,6 +24,12 @@ public struct Vector3C
     public static Vector3C right { get { return new Vector3C(1, 0, 0); } }
     public static Vector3C up { get { return new Vector3C(0, 1, 0); } }
     public static Vector3C forward { get { return new Vector3C(0, 0, 1); } }
+
+    public static Vector3C black { get { return new Vector3C(0, 0, 0); } }
+    public static Vector3C white { get { return new Vector3C(1, 1, 1); } }
+    public static Vector3C red { get { return new Vector3C(1, 0, 0); } }
+    public static Vector3C green { get { return new Vector3C(0, 1, 0); } }
+    public static Vector3C blue { get { return new Vector3C(0, 0, 1); } }
 
     #endregion
 
