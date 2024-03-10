@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Numerics;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
@@ -80,8 +81,11 @@ public class AA1_ParticleSystem
             particles[i].position = posFinal;
             particles[i].velocidad = velFinal;
 
-
-            CollisionPlane(particles[i], settingsCollision.planes[0]);
+            for (int j = 0; j < settingsCollision.planes.Length; j++) 
+            {
+                CollisionPlane(particles[i], settingsCollision.planes[j]);
+            }
+            
 
         }
 
@@ -99,10 +103,14 @@ public class AA1_ParticleSystem
 
     public void CollisionPlane(Particle particle, PlaneC plano)
     {
-        float distance = Vector3C.Dot(plano.normal, (particle.position - plano.position)) - particle.size / 2;
+        // la distancia da entre 0 y -0.55
+        float distance = Vector3C.Dot(plano.normal, (particle.position - plano.position)) - (particle.size / 2);
 
-        if (distance < 0)
+        UnityEngine.Debug.Log("distancia " + distance);
+
+        if (distance <= (particle.size / 2))
         {
+            
             particle.size = 100;
             // Se ha detectado una colisión
             // Ajustar la posición de la partícula para corregir la colisión
@@ -110,6 +118,8 @@ public class AA1_ParticleSystem
 
             // Calcular y ajustar la velocidad de la partícula en respuesta a la colisión
             float dotProduct = Vector3C.Dot(particle.velocidad, plano.normal);
+
+            UnityEngine.Debug.Log("dotProduct " + dotProduct);
             particle.velocidad -=  plano.normal * 2 * dotProduct;
         }
     }
