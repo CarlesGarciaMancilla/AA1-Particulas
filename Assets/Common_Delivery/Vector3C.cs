@@ -179,6 +179,13 @@ public struct Vector3C
     {
         return new Vector3C((v1.y*v2.z)-(v1.z*v2.y), (v1.z * v2.x) - (v1.x * v2.z), (v1.x * v2.x) - (v1.y * v2.x));
     }
+
+
+    public static Vector3C Reflect(Vector3C incident, Vector3C normal)
+    {
+        // Se calcula la reflexión usando la fórmula: R = I - 2 * (I dot N) * N
+        return incident - normal * Vector3C.Dot(incident, normal)  * 2;
+    }
     #endregion
 
 }
